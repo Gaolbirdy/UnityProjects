@@ -121,7 +121,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4840733652089336, guid: 9fd6c022f788bbb4fa7cc63a80bc1ef5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4840733652089336, guid: 9fd6c022f788bbb4fa7cc63a80bc1ef5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -147,6 +147,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114179122382697810, guid: 9fd6c022f788bbb4fa7cc63a80bc1ef5,
+        type: 2}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114179122382697810, guid: 9fd6c022f788bbb4fa7cc63a80bc1ef5,
+        type: 2}
+      propertyPath: chanceToChangeDirections
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 114179122382697810, guid: 9fd6c022f788bbb4fa7cc63a80bc1ef5,
+        type: 2}
+      propertyPath: applePrefab
+      value: 
+      objectReference: {fileID: 1779674909412456, guid: a2a3e154f5ad92543ac0ed9c350377ed,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9fd6c022f788bbb4fa7cc63a80bc1ef5, type: 2}
   m_IsPrefabParent: 0
