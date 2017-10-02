@@ -5,7 +5,6 @@ using UnityEngine;
 public class Basket : MonoBehaviour
  {
     public GUIText scoreGT;
-
     void Start()
     {
         // 查找ScoreCounter游戏对象，获取它的引用，通过引用去修改属性值。
@@ -15,6 +14,18 @@ public class Basket : MonoBehaviour
         scoreGT = scoreGO.GetComponent<GUIText>();
         //将初始分数设置为0
         scoreGT.text = "0";
+
+
+        //// 为什么GUIText直接new，而不是由别的对象赋值的引用，就会为null，Component也是；但是GameObject、GUISytle就可以new后直接访问
+        //GUIText selfScore = new GUIText();
+        //print(selfScore); // 输出null
+        //print(selfScore.name); // 输出和赋值都会报错NullReferenceException
+        //GUIStyle s = new GUIStyle();
+        //print(s); // 正常
+        //print(s.name); // 正常
+        //Object o = new Object();
+        //print(o); // 输出null
+        //print(o.name); // 输出和赋值都会报错NullReferenceException
     }
 
     void Update()
@@ -36,6 +47,7 @@ public class Basket : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
+
         // 检查与篮筐碰撞的是什么对象
         GameObject collideWith = coll.gameObject;
         if (collideWith.tag == "Apple")
@@ -47,6 +59,9 @@ public class Basket : MonoBehaviour
             score += 100;
             // 将分数转化为字符串显示在屏幕上
             scoreGT.text = score.ToString();
+            // 监视最高分
+            if (score > HighScore.score)
+                HighScore.score = score;
         }
     }
 }

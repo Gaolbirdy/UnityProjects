@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\ApplePicker.cs" />
     <Compile Include="Assets\Scripts\AppleTree.cs" />
     <Compile Include="Assets\Scripts\Basket.cs" />
+    <Compile Include="Assets\Scripts\HighScore.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
