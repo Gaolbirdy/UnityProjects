@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 002453f447d23bc40912f7cff91e2d28
-timeCreated: 1506858202
+timeCreated: 1506899539
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - basketPrefab: {fileID: 1074217595850256, guid: 8a0d07b00d7f22f42b08cb851127e50e,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
