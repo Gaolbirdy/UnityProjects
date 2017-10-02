@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ApplePicker : MonoBehaviour
  {
@@ -53,6 +54,10 @@ public class ApplePicker : MonoBehaviour
         // 而tBasketGO这个游戏对象的引用是取自List里的该Index元素，该元素已被先清除，但引用依然有效而不是null? 因为List里也是存的引用吗
         basketList.RemoveAt(basketIndex);
         Destroy(tBasketGO);
+
+        // 失去所有篮筐后重新开始游戏，HighScore.score不会受到影响
+        if (basketList.Count == 0)
+            SceneManager.LoadScene("_Scene_0");
 
         //// 注释调RemoveAt后测试，销毁后还能输出，看起来是到下一帧才真正销毁
         //print(basketIndex + " " + basketList[basketIndex] + " 名字 " + basketList[basketIndex].name);

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Basket : MonoBehaviour
  {
     public GUIText scoreGT;
+
     void Start()
     {
         // 查找ScoreCounter游戏对象，获取它的引用，通过引用去修改属性值。
