@@ -43,7 +43,10 @@ public class Basket : MonoBehaviour
             Destroy(collideWith);
             // 将scoreGT转换为整数值
             int score = int.Parse(scoreGT.text);
-
+            // 每次接住苹果就为玩家加分
+            score += 100;
+            // 将分数转化为字符串显示在屏幕上
+            scoreGT.text = score.ToString();
         }
     }
 }
