@@ -12,7 +12,7 @@ public class FollowTarget : MonoBehaviour
         //this.offset = this.playerTransform.position - this.transform.position;
 	}
 	
-	void Update () 
+	void LateUpdate () 
 	{
         this.transform.position = this.playerTransform.position + this.offset;
         //this.transform.position = this.playerTransform.position - this.offset;

@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 	{
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        rb.AddForce(new Vector3(h, 0, v) * force);
+        rb.AddForce(new Vector3(h, 0.0f, v) * force * Time.deltaTime);
     }
 
     void OnCollisionEnter(Collision collision)
