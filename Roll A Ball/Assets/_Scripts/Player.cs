@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour 
@@ -15,7 +13,7 @@ public class Player : MonoBehaviour
     void Start () 
 	{
         // 可以在检视面板把该GameObject赋给到自己脚本的刚体字段，前提是带有刚体组件
-        //rb = GetComponent<Rigidbody>();
+        //rb = this.GetComponent<Rigidbody>();
         text.text = score.ToString();
     }
 	

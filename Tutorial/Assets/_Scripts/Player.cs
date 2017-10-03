@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                is_landing = false;
+                this.is_landing = false;
 
                 float y_speed = Mathf.Sqrt(2.0f * Mathf.Abs(Physics.gravity.y) * this.JumpHeight);
 
