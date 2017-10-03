@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FollowTarget : MonoBehaviour 
 {
@@ -10,11 +8,13 @@ public class FollowTarget : MonoBehaviour
 
 	void Start () 
 	{
-        offset = transform.position - playerTransform.position;
+        this.offset = this.transform.position - this.playerTransform.position;
+        //this.offset = this.playerTransform.position - this.transform.position;
 	}
 	
 	void Update () 
 	{
-        transform.position = playerTransform.position + offset;
+        this.transform.position = this.playerTransform.position + this.offset;
+        //this.transform.position = this.playerTransform.position - this.offset;
     }
 }
