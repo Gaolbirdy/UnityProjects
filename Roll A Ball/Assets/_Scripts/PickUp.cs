@@ -6,6 +6,10 @@ public class PickUp : MonoBehaviour
 {
 	void Update () 
 	{
-        this.transform.Rotate(new Vector3(0, 1, 0));
-	}
+        // Test Rotate
+        if (this.tag == "PickUp")
+            this.transform.Rotate(new Vector3(1, 1, 1) * 0.2f, Space.World);
+        else
+            this.transform.Rotate(new Vector3(1, 1, 0) * 0.2f, Space.Self);
+    }
 }
