@@ -57,7 +57,7 @@ public class ApplePicker : MonoBehaviour
 
         // 失去所有篮筐后重新开始游戏，HighScore.score不会受到影响
         if (basketList.Count == 0)
-            SceneManager.LoadScene("_Scene_0");
+            SceneManager.LoadScene("_Scene_GameOver");
 
         //// 注释调RemoveAt后测试，销毁后还能输出，看起来是到下一帧才真正销毁
         //print(basketIndex + " " + basketList[basketIndex] + " 名字 " + basketList[basketIndex].name);
