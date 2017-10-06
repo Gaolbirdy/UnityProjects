@@ -61,8 +61,11 @@ public class Basket : MonoBehaviour
             // 将分数转化为字符串显示在屏幕上
             scoreGT.text = score.ToString();
             // 监视最高分
-            if (score > HighScore.score)
-                HighScore.score = score;
+            if (score > HighScore.highScore)
+                HighScore.highScore = score;
+
+            // 将当前分数写入PlayerPrefs，用于GameOver后切换到新场景界面显示分数
+            PlayerPrefs.SetInt("ApplePickerCurrentScore", score);
         }
     }
 }
