@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Basket : MonoBehaviour
  {
@@ -48,24 +46,20 @@ public class Basket : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
-
         // 检查与篮筐碰撞的是什么对象
         GameObject collideWith = coll.gameObject;
         if (collideWith.tag == "Apple")
         {
             Destroy(collideWith);
             // 将scoreGT转换为整数值
-            int score = int.Parse(scoreGT.text);
+            ApplePicker.score = int.Parse(scoreGT.text);
             // 每次接住苹果就为玩家加分
-            score += 100;
+            ApplePicker.score += 100;
             // 将分数转化为字符串显示在屏幕上
-            scoreGT.text = score.ToString();
+            scoreGT.text = ApplePicker.score.ToString();
             // 监视最高分
-            if (score > HighScore.highScore)
-                HighScore.highScore = score;
-
-            // 将当前分数写入PlayerPrefs，用于GameOver后切换到新场景界面显示分数
-            PlayerPrefs.SetInt("ApplePickerCurrentScore", score);
+            if (ApplePicker.score > HighScore.highScore)
+                HighScore.highScore = ApplePicker.score;
         }
     }
 }

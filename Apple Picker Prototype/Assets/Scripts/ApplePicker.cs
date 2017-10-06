@@ -1,15 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// 作为GameController，游戏主流程
 public class ApplePicker : MonoBehaviour
  {
     public GameObject basketPrefab;
     public int numBaskets = 3;
-    public float basketBottomY = -14;
+    public float basketBottomY = -14f;
     public float basketSpacingY = 2f;
     public List<GameObject> basketList;
+    static public int score;
+    // 在游戏开始存着原纪录，用于在结束界面作比较；不直接用PlayerPrefs里的值比较，因为游戏过程中它会更新
+    static public int oldScoreRecord;
 
     //// 数组存篮筐的实现，不如用List取得要清除元素的索引方便
     //public GameObject[] basketArray;
@@ -17,6 +20,19 @@ public class ApplePicker : MonoBehaviour
 
     void Start () 
 	{
+        SetScore();
+        SetBaskets();
+    }
+
+    private void SetScore()
+    {
+        // 静态变量在类的定义那初始化后，即便重载场景也不会重新初始化，还保留原值；所以一定要在方法里初始化
+        score = 0;
+        oldScoreRecord = PlayerPrefs.GetInt("ApplePickerHighScore");
+    }
+
+    private void SetBaskets()
+    {
         basketList = new List<GameObject>();
 
         //// 数组存篮筐的实现
@@ -55,9 +71,12 @@ public class ApplePicker : MonoBehaviour
         basketList.RemoveAt(basketIndex);
         Destroy(tBasketGO);
 
-        // 失去所有篮筐后重新开始游戏，HighScore.score不会受到影响
+        // 失去所有篮筐后游戏结束，HighScore.score不会受到影响
         if (basketList.Count == 0)
+        {
+            SetRecord();
             SceneManager.LoadScene("_Scene_GameOver");
+        }
 
         //// 注释调RemoveAt后测试，销毁后还能输出，看起来是到下一帧才真正销毁
         //print(basketIndex + " " + basketList[basketIndex] + " 名字 " + basketList[basketIndex].name);
@@ -74,5 +93,18 @@ public class ApplePicker : MonoBehaviour
         //    // Index--预设为下一次如果要清除时的数组元素索引
         //    basketIndex--;
         //}
+    }
+
+    private void SetRecord()
+    {
+        // 将本局游戏分数写入PlayerPrefs，用于GameOver后切换到新场景界面显示分数；还不会别的方式在不同场景中传递数据
+        PlayerPrefs.SetInt("ApplePickerCurrentScore", ApplePicker.score);
+
+        if (ApplePicker.score > ApplePicker.oldScoreRecord)
+            PlayerPrefs.SetString("ApplePickerRecord", "厉害，封神了！");
+        else if (ApplePicker.score == ApplePicker.oldScoreRecord)
+            PlayerPrefs.SetString("ApplePickerRecord", "追平啦，一步之遥！");
+        else
+            PlayerPrefs.SetString("ApplePickerRecord", "有差距，继续努力！");
     }
 }
