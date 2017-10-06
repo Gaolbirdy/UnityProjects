@@ -60,6 +60,9 @@ public class Basket : MonoBehaviour
             // 监视最高分
             if (ApplePicker.score > HighScore.highScore)
                 HighScore.highScore = ApplePicker.score;
+
+            //根据得分判断是否调整难度
+            Difficulty.SetLevel();
         }
     }
 }

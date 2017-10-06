@@ -22,6 +22,7 @@ public class ApplePicker : MonoBehaviour
 	{
         SetScore();
         SetBaskets();
+        Difficulty.SetLevel();
     }
 
     private void SetScore()
