@@ -62,6 +62,7 @@ public class ApplePicker : MonoBehaviour
         {
             Destroy(tGO);
         }
+
         // 消除一个篮筐
         // 获取basketList中最后一个篮筐的序号
         int basketIndex = basketList.Count - 1;
