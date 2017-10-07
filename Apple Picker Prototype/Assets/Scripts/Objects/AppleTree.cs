@@ -21,9 +21,6 @@ public class AppleTree : MonoBehaviour
     // 虫子产生概率
     public float chanceOfWorm = 0.15f;
 
-    // 苹果树的活动区域，到达边界时则改变方向
-    public float leftAndRightEdge = 10f;
-
     // 苹果树改变方向的概率
     public float chanceToChangeDirections = 0.1f;
 
@@ -69,9 +66,9 @@ public class AppleTree : MonoBehaviour
         pos.x += speed * Time.deltaTime;
         this.transform.position = pos;
         // 改变方向
-        if (pos.x < -leftAndRightEdge)
+        if (pos.x < -GameArea.leftAndRightEdge)
             speed = Mathf.Abs(speed); // 向右运动
-        else if (pos.x > leftAndRightEdge)
+        else if (pos.x > GameArea.leftAndRightEdge)
             speed = -Mathf.Abs(speed); // 向左运动
     }
 

@@ -87,7 +87,7 @@ public class Basket : MonoBehaviour
             case "Worm":
                 {
                     Destroy(collideWith);
-                    // 减少篮框后的游戏进程处理
+                    // 减少篮框后的游戏进程处理 未完成
                     Destroy(this.gameObject);
                     break;
                 }

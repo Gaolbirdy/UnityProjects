@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Apple : Drop
+public class Apple : MonoBehaviour, IDrop
  {
     public bool isBigApple = false;
 
-    public override void DropDestroy()
+    private void Update()
     {
-        if (this.transform.position.y < bottomY)
+        DropDestroy();
+    }
+
+    public void DropDestroy()
+    {
+        if (this.transform.position.y < GameArea.bottomY)
         {
-            // 下面销毁了所有掉落中的苹果了，这句不是必要了
-            Destroy(this.gameObject);
+            //// 下面销毁了所有掉落中的苹果了，这句不是必要了
+            //Destroy(this.gameObject);
 
             // 获取对主摄像机的ApplePicker组件的引用
             ApplePicker apScript = Camera.main.GetComponent<ApplePicker>();
