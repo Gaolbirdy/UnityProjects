@@ -238,6 +238,34 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114179122382697810, guid: 9fd6c022f788bbb4fa7cc63a80bc1ef5,
+        type: 2}
+      propertyPath: badApplePrefab
+      value: 
+      objectReference: {fileID: 1779674909412456, guid: b1ac1be1543ef2e4793e213ef4f990ac,
+        type: 2}
+    - target: {fileID: 114179122382697810, guid: 9fd6c022f788bbb4fa7cc63a80bc1ef5,
+        type: 2}
+      propertyPath: chanceOfBadApple
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114179122382697810, guid: 9fd6c022f788bbb4fa7cc63a80bc1ef5,
+        type: 2}
+      propertyPath: bigApplePrefab
+      value: 
+      objectReference: {fileID: 1779674909412456, guid: de0dd444cecf9764abc9431e7b060861,
+        type: 2}
+    - target: {fileID: 114179122382697810, guid: 9fd6c022f788bbb4fa7cc63a80bc1ef5,
+        type: 2}
+      propertyPath: chanceOfBigApple
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114179122382697810, guid: 9fd6c022f788bbb4fa7cc63a80bc1ef5,
+        type: 2}
+      propertyPath: wormPrefab
+      value: 
+      objectReference: {fileID: 1779674909412456, guid: 533110265fe7f764b9946e90373b6319,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9fd6c022f788bbb4fa7cc63a80bc1ef5, type: 2}
   m_IsPrefabParent: 0

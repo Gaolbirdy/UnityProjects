@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Apple : MonoBehaviour
+public class Apple : Drop
  {
-    public static float bottomY = -20f;
-	
-	void Update () 
-	{
+    public bool isBigApple = false;
+
+    public override void DropDestroy()
+    {
         if (this.transform.position.y < bottomY)
         {
             // 下面销毁了所有掉落中的苹果了，这句不是必要了
@@ -19,7 +19,7 @@ public class Apple : MonoBehaviour
             // 调用apScript的AppleDestroyed方法
             apScript.AppleDestroyed();
         }
-	}
+    }
 
     // 在苹果类里去销毁所有苹果也可以，当一个苹果掉出下界时
     //void AppleDestroyed()

@@ -6,6 +6,20 @@ public class AppleTree : MonoBehaviour
  {
     // 用来初始化苹果实例的预设
     public GameObject applePrefab;
+    // 大苹果预设
+    public GameObject bigApplePrefab;
+    // 大苹果产生概率
+    public float chanceOfBigApple = 0.1f;
+
+    // 坏苹果预设
+    public GameObject badApplePrefab;
+    // 坏苹果产生概率
+    public float chanceOfBadApple = 0.15f;
+
+    // 虫子预设
+    public GameObject wormPrefab;
+    // 虫子产生概率
+    public float chanceOfWorm = 0.15f;
 
     // 苹果树的活动区域，到达边界时则改变方向
     public float leftAndRightEdge = 10f;
@@ -30,8 +44,22 @@ public class AppleTree : MonoBehaviour
 
     void DropApple()
     {
-        GameObject apple = Instantiate(applePrefab) as GameObject;
-        apple.transform.position = this.transform.position;
+        GameObject drop;
+        float chance = Random.value;
+        if (chance < chanceOfBadApple)
+            drop = Instantiate(badApplePrefab) as GameObject;
+        else if (chance < (chanceOfBadApple + chanceOfWorm))
+            drop = Instantiate(wormPrefab) as GameObject;
+        else
+        {
+            if (Random.value < chanceOfBigApple)
+            {
+                drop = Instantiate(bigApplePrefab) as GameObject;
+            }
+            else
+                drop = Instantiate(applePrefab) as GameObject;
+        }
+        drop.transform.position = this.transform.position;
     }
 
     void Update () 

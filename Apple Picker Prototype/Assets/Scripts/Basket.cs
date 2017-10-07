@@ -48,21 +48,51 @@ public class Basket : MonoBehaviour
     {
         // 检查与篮筐碰撞的是什么对象
         GameObject collideWith = coll.gameObject;
-        if (collideWith.tag == "Apple")
+        switch (collideWith.tag)
         {
-            Destroy(collideWith);
-            // 将scoreGT转换为整数值
-            ApplePicker.score = int.Parse(scoreGT.text);
-            // 每次接住苹果就为玩家加分
-            ApplePicker.score += 100;
-            // 将分数转化为字符串显示在屏幕上
-            scoreGT.text = ApplePicker.score.ToString();
-            // 监视最高分
-            if (ApplePicker.score > HighScore.highScore)
-                HighScore.highScore = ApplePicker.score;
+            case "Apple":
+                {
+                    Apple apScript = collideWith.GetComponent<Apple>();
 
-            //根据得分判断是否调整难度
-            Difficulty.SetLevel();
+                    Destroy(collideWith);
+                    // 将scoreGT转换为整数值
+                    ApplePicker.score = int.Parse(scoreGT.text);
+                    // 每次接住苹果就为玩家加分
+                    if (apScript.isBigApple)
+                        ApplePicker.score += 400;
+                    else
+                        ApplePicker.score += 100;
+
+                    // 将分数转化为字符串显示在屏幕上
+                    scoreGT.text = ApplePicker.score.ToString();
+                    // 监视最高分
+                    if (ApplePicker.score > HighScore.highScore)
+                        HighScore.highScore = ApplePicker.score;
+
+                    //根据得分判断是否调整难度
+                    Difficulty.SetLevel();
+                    break;
+                }
+            case "BadApple":
+                {
+                    Destroy(collideWith);
+                    // 将scoreGT转换为整数值
+                    ApplePicker.score = int.Parse(scoreGT.text);
+                    // 每次接住坏苹果就为玩家减分
+                    ApplePicker.score -= 200;
+                    // 将分数转化为字符串显示在屏幕上
+                    scoreGT.text = ApplePicker.score.ToString();
+                    break;
+                }
+            case "Worm":
+                {
+                    Destroy(collideWith);
+                    // 减少篮框后的游戏进程处理
+                    Destroy(this.gameObject);
+                    break;
+                }
+            default:
+                break;
         }
     }
 }
