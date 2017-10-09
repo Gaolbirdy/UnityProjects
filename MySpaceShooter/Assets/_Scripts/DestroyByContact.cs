@@ -8,7 +8,8 @@ public class DestroyByContact : MonoBehaviour
     public GameObject playerExplosion;
     public int scoreValue;
 
-    private GameController gameController; // 用拖动GameController游戏对象赋值试试
+    // 用拖动GameController游戏对象赋值试试，此脚本是绑在prefab上，不能通过拖动当前场景中对象实例来赋值，因为prefab还可以用在其他场景上
+    private GameController gameController; 
 
     void Start()
     {

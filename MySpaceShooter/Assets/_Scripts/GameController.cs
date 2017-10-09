@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
         {
             if (gameOver)
             {
-                restartText.text = "按【R】键重新开始";
+                restartText.enabled = true;
                 restart = true;
                 break;
             }
@@ -49,9 +49,7 @@ public class GameController : MonoBehaviour
 	{
         score = 0;
         UpdateScore();
-        gameOverText.text = "";
         gameOver = false;
-        restartText.text = "";
         restart = false;
         StartCoroutine(SpawnWaves());
 	}
@@ -70,7 +68,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
-        gameOverText.text = "游戏结束";
+        gameOverText.enabled = true;
     }
 
     void Update()
