@@ -496,7 +496,6 @@ GameObject:
   - component: {fileID: 1845061170}
   - component: {fileID: 1845061169}
   - component: {fileID: 1845061174}
-  - component: {fileID: 1845061175}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -591,17 +590,6 @@ MonoBehaviour:
   basketBottomY: -14
   basketSpacingY: 2
   basketList: []
---- !u!114 &1845061175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1845061168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88959daea3e62d847bec2d052dcf4681, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1910640193
 GameObject:
   m_ObjectHideFlags: 0

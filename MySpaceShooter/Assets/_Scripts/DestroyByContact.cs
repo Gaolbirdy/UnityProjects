@@ -6,6 +6,7 @@ public class DestroyByContact : MonoBehaviour
 {
     public GameObject explosion;
     public GameObject playerExplosion;
+    public GameObject enemyExplosion;
     public int scoreValue;
 
     // 用拖动GameController游戏对象赋值试试，此脚本是绑在prefab上，不能通过拖动当前场景中对象实例来赋值，因为prefab还可以用在其他场景上
@@ -28,7 +29,16 @@ public class DestroyByContact : MonoBehaviour
     {
         if (other.tag == "Boundary")
             return;
-        Instantiate(explosion, transform.position, transform.rotation);
+        switch (this.tag)
+        {
+            case "Enemy":
+                Instantiate(enemyExplosion, transform.position, transform.rotation);
+                scoreValue *= 5;
+                break;
+            default:
+                Instantiate(explosion, transform.position, transform.rotation);
+                break;
+        }
         if (other.tag == "Player")
         {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);

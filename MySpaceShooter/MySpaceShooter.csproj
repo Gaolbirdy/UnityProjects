@@ -78,10 +78,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\BoltEnemy.cs" />
     <Compile Include="Assets\_Scripts\Boundary.cs" />
     <Compile Include="Assets\_Scripts\DestroyByContact.cs" />
     <Compile Include="Assets\_Scripts\DestroyByDoundary.cs" />
     <Compile Include="Assets\_Scripts\DestroyByTime.cs" />
+    <Compile Include="Assets\_Scripts\Enemy.cs" />
     <Compile Include="Assets\_Scripts\GameController.cs" />
     <Compile Include="Assets\_Scripts\Mover.cs" />
     <Compile Include="Assets\_Scripts\PlayerController.cs" />
