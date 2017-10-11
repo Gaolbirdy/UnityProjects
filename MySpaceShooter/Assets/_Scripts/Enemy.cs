@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public GameObject shot;
     public Transform shotSpawn;
     public float fireRate = 1f;
+
     private float nextFire = 0f;
 
     private void Update()

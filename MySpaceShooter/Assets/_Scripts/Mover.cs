@@ -6,8 +6,13 @@ public class Mover : MonoBehaviour
  {
     public float speed = 20.0f;
 
-	void Start () 
+    void Start () 
 	{
         this.GetComponent<Rigidbody>().velocity = this.transform.forward * this.speed;
+    }
+
+    private void FixedUpdate()
+    {
+
     }
 }

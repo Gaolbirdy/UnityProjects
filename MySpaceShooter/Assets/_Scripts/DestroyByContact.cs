@@ -23,6 +23,7 @@ public class DestroyByContact : MonoBehaviour
             Debug.Log("找不到tag为GameController的对象");
         if (gameController == null)
             Debug.Log("找不到脚本GameController.cs");
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -31,12 +32,14 @@ public class DestroyByContact : MonoBehaviour
             return;
         switch (this.tag)
         {
+            case "Asteroid":
+                Instantiate(explosion, transform.position, transform.rotation);
+                break;
             case "Enemy":
                 Instantiate(enemyExplosion, transform.position, transform.rotation);
                 scoreValue *= 5;
                 break;
             default:
-                Instantiate(explosion, transform.position, transform.rotation);
                 break;
         }
         if (other.tag == "Player")
@@ -44,8 +47,11 @@ public class DestroyByContact : MonoBehaviour
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
             gameController.GameOver();
         }
+        else
+        {
+            gameController.AddScore(scoreValue);
+        }
         Destroy(other.gameObject);
         Destroy(gameObject);
-        gameController.AddScore(scoreValue);
     }
 }
