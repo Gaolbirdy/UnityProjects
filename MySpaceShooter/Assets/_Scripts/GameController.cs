@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour 
 {
-    public GameObject hazard;
-    public Vector3 spawnValues;
+    public GameObject[] hazards;
     public int hazardCount;
+    public GameObject enemy;
+    public float chanceOfEnemy;
+    public Vector3 spawnValues;
     public float spawnWait;
     public float startWait;
     public float waveWait;
@@ -29,16 +31,25 @@ public class GameController : MonoBehaviour
         {
             if (gameOver)
             {
-                restartText.text = "按【R】键重新开始";
+                restartText.enabled = true;
                 restart = true;
                 break;
             }
             for (int i = 0; i < hazardCount; i++)
             {
+                int hazardIndex = Random.Range(0, hazards.Length);
+                GameObject hazard = hazards[hazardIndex];
                 spawnPosition.x = Random.Range(-spawnValues.x, spawnValues.x);
                 spawnPosition.z = spawnValues.z;
                 spawnRotatoin = Quaternion.identity;
                 Instantiate(hazard, spawnPosition, spawnRotatoin);
+                yield return new WaitForSeconds(spawnWait);
+                if (Random.value < chanceOfEnemy)
+                {
+                    spawnPosition.x = Random.Range(-spawnValues.x, spawnValues.x);
+                    spawnPosition.z = spawnValues.z;
+                    Instantiate(enemy, spawnPosition, enemy.transform.rotation);
+                }
                 yield return new WaitForSeconds(spawnWait);
             }
             yield return new WaitForSeconds(waveWait);
@@ -49,9 +60,7 @@ public class GameController : MonoBehaviour
 	{
         score = 0;
         UpdateScore();
-        gameOverText.text = "";
         gameOver = false;
-        restartText.text = "";
         restart = false;
         StartCoroutine(SpawnWaves());
 	}
@@ -70,7 +79,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
-        gameOverText.text = "游戏结束";
+        gameOverText.enabled = true;
     }
 
     void Update()

@@ -6,9 +6,11 @@ public class DestroyByContact : MonoBehaviour
 {
     public GameObject explosion;
     public GameObject playerExplosion;
+    public GameObject enemyExplosion;
     public int scoreValue;
 
-    private GameController gameController; // 用拖动GameController游戏对象赋值试试
+    // 用拖动GameController游戏对象赋值试试，此脚本是绑在prefab上，不能通过拖动当前场景中对象实例来赋值，因为prefab还可以用在其他场景上
+    private GameController gameController; 
 
     void Start()
     {
@@ -21,20 +23,35 @@ public class DestroyByContact : MonoBehaviour
             Debug.Log("找不到tag为GameController的对象");
         if (gameController == null)
             Debug.Log("找不到脚本GameController.cs");
+
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Boundary")
             return;
-        Instantiate(explosion, transform.position, transform.rotation);
+        switch (this.tag)
+        {
+            case "Asteroid":
+                Instantiate(explosion, transform.position, transform.rotation);
+                break;
+            case "Enemy":
+                Instantiate(enemyExplosion, transform.position, transform.rotation);
+                scoreValue *= 5;
+                break;
+            default:
+                break;
+        }
         if (other.tag == "Player")
         {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
             gameController.GameOver();
         }
+        else
+        {
+            gameController.AddScore(scoreValue);
+        }
         Destroy(other.gameObject);
         Destroy(gameObject);
-        gameController.AddScore(scoreValue);
     }
 }
