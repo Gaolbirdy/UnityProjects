@@ -8,18 +8,29 @@ public class AppleTree : MonoBehaviour
     public GameObject applePrefab;
     // 大苹果预设
     public GameObject bigApplePrefab;
-    // 大苹果产生概率
-    public float chanceOfBigApple = 0.1f;
-
     // 坏苹果预设
     public GameObject badApplePrefab;
-    // 坏苹果产生概率
-    public float chanceOfBadApple = 0.15f;
-
     // 虫子预设
     public GameObject wormPrefab;
+    // 掉落物种类数组
+    private GameObject[] drops;
+
+    // 一般苹果产生概率
+    private float chanceOfNormalApple
+    {
+        get
+        {
+            return 1 - sumOfOtheringChance();
+        }
+    }
+    // 大苹果产生概率
+    public float chanceOfBigApple = 0.1f;
+    // 坏苹果产生概率
+    public float chanceOfBadApple = 0.15f;
     // 虫子产生概率
     public float chanceOfWorm = 0.15f;
+    // 掉落物概率数组
+    private float[] chances;
 
     // 苹果树改变方向的概率
     public float chanceToChangeDirections = 0.1f;
@@ -27,36 +38,49 @@ public class AppleTree : MonoBehaviour
     // 苹果树移动的速度，单位：米/秒；难度相关属性
     public float speed = 1f;
 
-    // 苹果出现的时间间隔；难度相关属性
-    public float secondsBetweenAppleDrops = 1f;
+    // 掉落物出现的时间间隔；难度相关属性
+    public float secondsBetweenDrops = 1f;
 
-    public float[,] difficultyLevel = new float[3, 2]; 
-
-	void Start () 
+    void Start () 
 	{
         // 每秒掉落一个苹果	
         // 测试结果是在这个方法开始调用后，repeatRate参数改变也无效了，所以无法影响这个难度
-        InvokeRepeating("DropApple", 2f, secondsBetweenAppleDrops);
-	}
+        InvokeRepeating("DropSomething", 2f, secondsBetweenDrops);
+        BuildDropsStruct();
+    }
 
-    void DropApple()
+    private void BuildDropsStruct()
     {
-        GameObject drop;
-        float chance = Random.value;
-        if (chance < chanceOfBadApple)
-            drop = Instantiate(badApplePrefab) as GameObject;
-        else if (chance < (chanceOfBadApple + chanceOfWorm))
-            drop = Instantiate(wormPrefab) as GameObject;
-        else
+        drops = new GameObject[] { applePrefab, bigApplePrefab, badApplePrefab, wormPrefab };
+        chances = new float[] { chanceOfNormalApple,chanceOfBigApple,chanceOfBadApple,chanceOfWorm };
+    }
+
+    private float sumOfOtheringChance()
+    {
+        return chanceOfBadApple + chanceOfBigApple + chanceOfWorm;
+    }
+
+    private void DropSomething()
+    {
+        GameObject something = RandomDrops();
+        Instantiate(something, this.transform.position,this.transform.rotation);
+    }
+
+    private GameObject RandomDrops()
+    {
+        GameObject drop = null;
+        float random = Random.value;
+        float chance = 0.0f;
+        for (int i = 0; i < chances.Length; i++)
         {
-            if (Random.value < chanceOfBigApple)
+            chance += chances[i];
+            if (random <= chance)
             {
-                drop = Instantiate(bigApplePrefab) as GameObject;
+                drop = drops[i];
+                break;
             }
-            else
-                drop = Instantiate(applePrefab) as GameObject;
         }
-        drop.transform.position = this.transform.position;
+        return drop;
     }
 
     void Update () 

@@ -54,6 +54,26 @@ public class ApplePicker : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        IsGameOver();
+    }
+
+    private void IsGameOver()
+    {
+        // 失去所有篮筐后游戏结束，HighScore.score不会受到影响
+        if (basketList.Count == 0)
+        {
+            SetRecord();
+            GameOverScene();
+        }
+    }
+
+    private void GameOverScene()
+    {
+        SceneManager.LoadScene("_Scene_GameOver");
+    }
+
     public void AppleDestroyed()
     {
         // 消除所有下落中的苹果
@@ -64,6 +84,11 @@ public class ApplePicker : MonoBehaviour
         }
 
         // 消除一个篮筐
+        BasketDestroyed();
+    }
+
+    public void BasketDestroyed()
+    {
         // 获取basketList中最后一个篮筐的序号
         int basketIndex = basketList.Count - 1;
         // 取得对该篮筐的引用
@@ -72,13 +97,6 @@ public class ApplePicker : MonoBehaviour
         // 而tBasketGO这个游戏对象的引用是取自List里的该Index元素，该元素已被先清除，但引用依然有效而不是null? 因为List里也是存的引用吗
         basketList.RemoveAt(basketIndex);
         Destroy(tBasketGO);
-
-        // 失去所有篮筐后游戏结束，HighScore.score不会受到影响
-        if (basketList.Count == 0)
-        {
-            SetRecord();
-            SceneManager.LoadScene("_Scene_GameOver");
-        }
 
         //// 注释调RemoveAt后测试，销毁后还能输出，看起来是到下一帧才真正销毁
         //print(basketIndex + " " + basketList[basketIndex] + " 名字 " + basketList[basketIndex].name);

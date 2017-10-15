@@ -87,12 +87,21 @@ public class Basket : MonoBehaviour
             case "Worm":
                 {
                     Destroy(collideWith);
-                    // 减少篮框后的游戏进程处理 未完成
-                    Destroy(this.gameObject);
+                    // 失去一个篮筐
+                    LoseBasket();
                     break;
                 }
             default:
                 break;
         }
+    }
+
+    void LoseBasket()
+    {
+        // 获取对主摄像机的ApplePicker组件的引用
+        ApplePicker apScript = Camera.main.GetComponent<ApplePicker>();
+
+        // 调用apScript的BasketDestroyed方法，刚好也是消除最上面的那个篮筐
+        apScript.BasketDestroyed();
     }
 }
