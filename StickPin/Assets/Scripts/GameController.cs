@@ -1,19 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour 
 {
     public Transform startPoint;
     public Transform spawnPoint;
     public GameObject pinPrefab;
+    public Text scoreText;
+    public float speed = 1.0f;
+    public float targetSize = 4.0f;
 
     private Pin currentPin;
     private bool isGameOver = false;
+    private int score = 0;
+    private Camera mainCamera;
 
     private void Start()
     {
         SpawnPin();
+        mainCamera = Camera.main;
     }
 
     private void Update()
@@ -24,6 +32,7 @@ public class GameController : MonoBehaviour
         {
             currentPin.StartFly();
             SpawnPin();
+            AddScore();
         }       
     }
 
@@ -38,5 +47,27 @@ public class GameController : MonoBehaviour
             return;
         GameObject.Find("Circle").GetComponent<RotateSelf>().enabled = false;
         isGameOver = true;
+        GameOverAnimation();
+    }
+
+    private void AddScore()
+    {
+        score++;
+        scoreText.text = score.ToString();
+    }
+
+    private IEnumerator GameOverAnimation()
+    {
+        print(1);
+        while (true)
+        {
+            mainCamera.backgroundColor = Color.Lerp(mainCamera.backgroundColor, Color.red, speed * Time.deltaTime);
+            mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, targetSize, speed * Time.deltaTime);
+            if (Mathf.Abs(mainCamera.orthographicSize - targetSize) < 0.01f)
+                break;
+            yield return 0;
+        }
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

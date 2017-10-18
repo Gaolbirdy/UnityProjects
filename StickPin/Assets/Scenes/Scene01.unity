@@ -451,6 +451,7 @@ MonoBehaviour:
   startPoint: {fileID: 634536989}
   spawnPoint: {fileID: 219471975}
   pinPrefab: {fileID: 1518725983641392, guid: e3a67d693e862414cafe03849b42b262, type: 2}
+  scoreText: {fileID: 636147668}
 --- !u!4 &1463687853
 Transform:
   m_ObjectHideFlags: 0
