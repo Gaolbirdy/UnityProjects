@@ -7,11 +7,6 @@ public class Shoot : MonoBehaviour
     public GameObject bullet;
     public float speed = 5;
 
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
