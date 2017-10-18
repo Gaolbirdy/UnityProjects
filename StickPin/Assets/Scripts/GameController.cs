@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour
             return;
         GameObject.Find("Circle").GetComponent<RotateSelf>().enabled = false;
         isGameOver = true;
-        GameOverAnimation();
+        StartCoroutine(GameOverAnimation());
     }
 
     private void AddScore()
@@ -58,7 +58,6 @@ public class GameController : MonoBehaviour
 
     private IEnumerator GameOverAnimation()
     {
-        print(1);
         while (true)
         {
             mainCamera.backgroundColor = Color.Lerp(mainCamera.backgroundColor, Color.red, speed * Time.deltaTime);
@@ -67,7 +66,7 @@ public class GameController : MonoBehaviour
                 break;
             yield return 0;
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

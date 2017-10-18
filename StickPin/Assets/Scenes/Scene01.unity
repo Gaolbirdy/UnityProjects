@@ -452,6 +452,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 219471975}
   pinPrefab: {fileID: 1518725983641392, guid: e3a67d693e862414cafe03849b42b262, type: 2}
   scoreText: {fileID: 636147668}
+  speed: 2.5
+  targetSize: 3.5
 --- !u!4 &1463687853
 Transform:
   m_ObjectHideFlags: 0
@@ -548,4 +550,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f191f08c41441b4a99820a686bfa2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 90
+  speed: 135
