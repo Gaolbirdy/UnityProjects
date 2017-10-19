@@ -43,8 +43,8 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        if (isGameOver)
-            return;
+        //if (isGameOver)
+        //    return; // 多余了，已经GameOver则不会再调用到此方法了
         GameObject.Find("Circle").GetComponent<RotateSelf>().enabled = false;
         isGameOver = true;
         StartCoroutine(GameOverAnimation());
@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour
                 break;
             yield return 0;
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
