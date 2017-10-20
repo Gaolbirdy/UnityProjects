@@ -8,7 +8,7 @@ public class PinHead : MonoBehaviour
     {
         GameController gc = GameObject.Find("GameController").GetComponent<GameController>();
         if (gc.IsGameOver)
-            return; // 两个针头碰撞后，避免会调用两次
+            return; // 两个针头互相碰撞后，避免会调用两次
         if (collision.tag == "PinHead")
         {
             gc.GameOver();
