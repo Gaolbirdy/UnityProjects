@@ -14,9 +14,22 @@ public class GameController : MonoBehaviour
     public float targetSize = 4.0f;
 
     private Pin currentPin;
-    private bool isGameOver = false;
     private int score = 0;
     private Camera mainCamera;
+
+    private bool isGameOver = false;
+    public bool IsGameOver
+    {
+        get
+        {
+            return isGameOver;
+        }
+
+        private set
+        {
+            isGameOver = value;
+        }
+    }
 
     private void Start()
     {
@@ -26,7 +39,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (isGameOver)
+        if (IsGameOver)
             return;
         if (Input.GetMouseButtonDown(0))
         {
@@ -43,10 +56,8 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        //if (isGameOver)
-        //    return; // 多余了，已经GameOver则不会再调用到此方法了
         GameObject.Find("Circle").GetComponent<RotateSelf>().enabled = false;
-        isGameOver = true;
+        IsGameOver = true;
         StartCoroutine(GameOverAnimation());
     }
 
