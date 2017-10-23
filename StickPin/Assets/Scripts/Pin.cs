@@ -7,7 +7,9 @@ public class Pin : MonoBehaviour
     public float speed = 5;
     public float stickPosY = 0.7f;
 
+    // 是否在飞往目标位置的过程中
     private bool isFly = false;
+    // 是否达到待发射的初始位置
     private bool isReach = false;
     private Transform startPoint;
     private Transform circle;
@@ -26,6 +28,7 @@ public class Pin : MonoBehaviour
     {
         if (isFly == false)
         {
+            // 还没按左键前的分支，飞往待发射的初始位置
             if (isReach == false)
             {
                 transform.position = Vector3.MoveTowards(transform.position, startPoint.position, speed * Time.deltaTime);
@@ -33,12 +36,13 @@ public class Pin : MonoBehaviour
                     isReach = true;
             }
         }
+        // 按左键后的分支，飞往目标位置
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, targetCirclePos, speed * Time.deltaTime);
             if (Vector3.Distance(transform.position, targetCirclePos) < 0.05f)
             {
-                transform.position = targetCirclePos;
+                transform.position = targetCirclePos; // ？
                 transform.parent = circle;
                 isFly = false;
             }
@@ -48,6 +52,7 @@ public class Pin : MonoBehaviour
     public void StartFly()
     {
         isFly = true;
+        // 目前逻辑有可能还没达到待发射位置，就点了左键发射（未能通过Update把isReach设为true）。所以需在此处把isReach设为true，否则还会一直飞往待发射位置
         isReach = true;
     }
 }

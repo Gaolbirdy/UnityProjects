@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
             currentPin.StartFly();
             SpawnPin();
             AddScore();
-        }       
+        }
     }
 
     private void SpawnPin()
@@ -73,6 +73,7 @@ public class GameController : MonoBehaviour
         {
             mainCamera.backgroundColor = Color.Lerp(mainCamera.backgroundColor, Color.red, speed * Time.deltaTime);
             mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, targetSize, speed * Time.deltaTime);
+            // 摄像机Size的变化ok了，就跳出。不判断Color的插值变化了，会差不多。
             if (Mathf.Abs(mainCamera.orthographicSize - targetSize) < 0.01f)
                 break;
             yield return 0;
