@@ -14,4 +14,9 @@ public class PinHead : MonoBehaviour
             gc.GameOver();
         }
     }
+
+    private void Update()
+    {
+        print(transform.position.y);
+    }
 }

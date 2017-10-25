@@ -33,7 +33,10 @@ public class Pin : MonoBehaviour
             {
                 transform.position = Vector3.MoveTowards(transform.position, startPoint.position, speed * Time.deltaTime);
                 if (Vector3.Distance(transform.position, startPoint.position) < 0.05f)
+                {
+                    //transform.position = startPoint.position;
                     isReach = true;
+                }
             }
         }
         // 按左键后的分支，飞往目标位置
@@ -42,7 +45,7 @@ public class Pin : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetCirclePos, speed * Time.deltaTime);
             if (Vector3.Distance(transform.position, targetCirclePos) < 0.05f)
             {
-                transform.position = targetCirclePos; // ？
+                transform.position = targetCirclePos; // 会让针插入后高度一致
                 transform.parent = circle;
                 isFly = false;
             }
