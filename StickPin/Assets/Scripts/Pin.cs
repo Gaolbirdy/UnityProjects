@@ -46,6 +46,7 @@ public class Pin : MonoBehaviour
             if (Vector3.Distance(transform.position, targetCirclePos) < 0.05f)
             {
                 transform.position = targetCirclePos; // 会让针插入后高度一致
+                // 自身不再移动，而是随着parent的transform变换，转动
                 transform.parent = circle;
                 isFly = false;
             }
