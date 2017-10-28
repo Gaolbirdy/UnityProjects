@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class PinHead : MonoBehaviour 
 {
+    // 调试碰撞脚本调用顺序用
+    static private int id = 0;
+
+    private void Start()
+    {
+        name += " " + id.ToString();
+        print(name + " created");
+        id++;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print(name + " begin");
+        print(collision.name + " 撞进来了");
         GameController gc = GameObject.Find("GameController").GetComponent<GameController>();
         if (gc.IsGameOver)
+        {
+            print(name + " return");
             return; // 两个针头互相碰撞后，避免会调用两次
+        }
         if (collision.tag == "PinHead")
         {
             gc.GameOver();
         }
+        print(name + " end");
     }
 
     //private void Update()

@@ -72,6 +72,7 @@ public class GameController : MonoBehaviour
         // 模拟Update
         while (true)
         {
+            print("while loop");
             mainCamera.backgroundColor = Color.Lerp(mainCamera.backgroundColor, Color.red, speed * Time.deltaTime);
             mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, targetSize, speed * Time.deltaTime);
             // 摄像机Size的变化ok了，就跳出。不判断Color的插值变化了，都同步插值变化，会差不多。
@@ -80,7 +81,9 @@ public class GameController : MonoBehaviour
             // 不管数值为几，都是等一帧。返回的是迭代器IEnumerator 的 currentvalue ，对U3D协同来说，这个值是数字的话没有什么意义，可以是任意值 
             yield return 0;
         }
+        print("while done");
         yield return new WaitForSeconds(1.0f);
+        print("wait done");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
