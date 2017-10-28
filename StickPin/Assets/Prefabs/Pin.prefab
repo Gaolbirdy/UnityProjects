@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   stickPosY: 0.7
+  isReach: 0
 --- !u!114 &114860293566842300
 MonoBehaviour:
   m_ObjectHideFlags: 1

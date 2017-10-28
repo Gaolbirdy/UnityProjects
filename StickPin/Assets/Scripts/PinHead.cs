@@ -10,25 +10,25 @@ public class PinHead : MonoBehaviour
     private void Start()
     {
         name += " " + id.ToString();
-        print(name + " created");
+        //print(name + " created");
         id++;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(name + " begin");
-        print(collision.name + " 撞进来了");
+        //print(name + " begin");
+        //print(collision.name + " 撞进来了");
         GameController gc = GameObject.Find("GameController").GetComponent<GameController>();
         if (gc.IsGameOver)
         {
-            print(name + " return");
+            //print(name + " return");
             return; // 两个针头互相碰撞后，避免会调用两次
         }
         if (collision.tag == "PinHead")
         {
             gc.GameOver();
         }
-        print(name + " end");
+        //print(name + " end");
     }
 
     //private void Update()

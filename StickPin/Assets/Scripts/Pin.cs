@@ -6,11 +6,11 @@ public class Pin : MonoBehaviour
 {
     public float speed = 5;
     public float stickPosY = 0.7f;
+    // 是否达到待发射的初始位置
+    public bool isReach = false;
 
     // 是否在飞往目标位置的过程中
     private bool isFly = false;
-    // 是否达到待发射的初始位置
-    private bool isReach = false;
     private Transform startPoint;
     private Transform circle;
     private Vector3 targetCirclePos;
@@ -56,7 +56,7 @@ public class Pin : MonoBehaviour
     public void StartFly()
     {
         isFly = true;
-        // 目前逻辑有可能还没达到待发射位置，就点了左键发射（未能通过Update把isReach设为true）。所以需在此处把isReach设为true，否则还会一直飞往待发射位置
-        isReach = true;
+        //// 目前逻辑有可能还没达到待发射位置，就点了左键发射（未能通过Update把isReach设为true）。所以需在此处把isReach设为true，否则还会一直飞往待发射位置
+        //isReach = true;
     }
 }
