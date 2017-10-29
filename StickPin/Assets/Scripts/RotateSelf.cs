@@ -9,7 +9,7 @@ public class RotateSelf : MonoBehaviour
     private void Update()
     {
         GameController gc = GameObject.Find("GameController").GetComponent<GameController>();
-        if(!gc.IsGameOver)
+        //if(!gc.IsGameOver)
             transform.Rotate(new Vector3(0, 0, -speed) * Time.deltaTime);
     }
 }

@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour
             {
                 currentPin.StartFly();
                 SpawnPin();
-                AddScore();
+                //AddScore();
             }
         }
     }
@@ -65,7 +65,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(GameOverAnimation());
     }
 
-    private void AddScore()
+    public void AddScore()
     {
         score++;
         scoreText.text = score.ToString();

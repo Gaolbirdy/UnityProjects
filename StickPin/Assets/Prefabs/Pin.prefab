@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 4664011918802242}
   - component: {fileID: 212456237134739778}
   - component: {fileID: 114000291663563840}
+  - component: {fileID: 50282062141718954}
   m_Layer: 0
   m_Name: Pin
   m_TagString: Untagged
@@ -74,6 +75,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!50 &50282062141718954
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518725983641392}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!50 &50833442771830250
 Rigidbody2D:
   serializedVersion: 4
@@ -123,6 +144,7 @@ MonoBehaviour:
   speed: 15
   stickPosY: 0.7
   isReach: 0
+  isFly: 0
 --- !u!114 &114860293566842300
 MonoBehaviour:
   m_ObjectHideFlags: 1

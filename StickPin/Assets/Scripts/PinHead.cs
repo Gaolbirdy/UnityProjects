@@ -26,9 +26,19 @@ public class PinHead : MonoBehaviour
         }
         if (collision.tag == "PinHead")
         {
+            Drop();
             gc.GameOver();
         }
         //print(name + " end");
+    }
+
+    private void Drop()
+    {
+        GameObject pin = transform.parent.gameObject;
+        //pin.GetComponent<Pin>().isFly = false;
+        pin.transform.parent = null;
+        pin.GetComponent<Rigidbody2D>().gravityScale = 2;
+        GetComponent<Rigidbody2D>().gravityScale = 2;
     }
 
     //private void Update()

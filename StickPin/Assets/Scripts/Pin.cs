@@ -10,7 +10,7 @@ public class Pin : MonoBehaviour
     public bool isReach = false;
 
     // 是否在飞往目标位置的过程中
-    private bool isFly = false;
+    public bool isFly = false;
     private Transform startPoint;
     private Transform circle;
     private Vector3 targetCirclePos;
@@ -49,6 +49,8 @@ public class Pin : MonoBehaviour
                 // 自身不再移动，而是随着parent的transform变换，转动
                 transform.parent = circle;
                 isFly = false;
+                GameController gc = GameObject.Find("GameController").GetComponent<GameController>();
+                gc.AddScore();
             }
         }
     }
