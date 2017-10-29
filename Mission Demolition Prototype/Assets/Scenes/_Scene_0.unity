@@ -250,6 +250,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 557937958}
+  - component: {fileID: 557937959}
   m_Layer: 0
   m_Name: LaunchPoint
   m_TagString: Untagged
@@ -270,6 +271,17 @@ Transform:
   m_Father: {fileID: 1264356879}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -15, z: 0}
+--- !u!122 &557937959
+Halo:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 557937957}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4290756543
+  m_Size: 1
 --- !u!1 &910637717
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1264356879}
   - component: {fileID: 1264356880}
+  - component: {fileID: 1264356881}
   m_Layer: 0
   m_Name: SlingShot
   m_TagString: Untagged
@@ -379,11 +392,28 @@ SphereCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1264356878}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3
   m_Center: {x: 0, y: 4, z: 0}
+--- !u!114 &1264356881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1264356878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecd5d3d4b78570649bf70ec14baad8e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabProjectile: {fileID: 1620835545470690, guid: 66c0fef9a99a1dc40bdb2568145a5bc6,
+    type: 2}
+  ________________________: 0
+  launchPos: {x: 0, y: 0, z: 0}
+  projectile: {fileID: 0}
+  aimingMode: 0
 --- !u!1 &1429599683
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,8 +613,8 @@ Camera:
   m_GameObject: {fileID: 1796447317}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.7794118, b: 0.7794118, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.38965517, g: 0.7794118, b: 0.7794118, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
