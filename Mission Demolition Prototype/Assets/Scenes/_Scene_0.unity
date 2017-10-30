@@ -392,7 +392,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1264356878}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3
@@ -410,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabProjectile: {fileID: 1620835545470690, guid: 66c0fef9a99a1dc40bdb2568145a5bc6,
     type: 2}
+  velocityMult: 10
   ________________________: 0
   launchPos: {x: 0, y: 0, z: 0}
   projectile: {fileID: 0}
@@ -490,8 +491,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1429599683}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 1}
+  m_LocalPosition: {x: 100, y: -10, z: 0}
+  m_LocalScale: {x: 400, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -577,6 +578,7 @@ GameObject:
   - component: {fileID: 1796447320}
   - component: {fileID: 1796447319}
   - component: {fileID: 1796447318}
+  - component: {fileID: 1796447323}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -654,3 +656,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1796447323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796447317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f873ab33ad4dc7e429cbeece27345aca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  easing: 0.05
+  __________________: 0
+  poi: {fileID: 0}
+  camZ: 0

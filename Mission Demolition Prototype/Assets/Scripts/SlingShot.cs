@@ -59,7 +59,7 @@ public class SlingShot : MonoBehaviour
         mousePos2D.z = -Camera.main.transform.position.z;
         Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
         // 计算launchPos到mousePos3D两点之间的坐标差
-        Vector3 mouseDelta = mousePos2D - launchPos;
+        Vector3 mouseDelta = mousePos3D - launchPos;
         // 将mouseDelta坐标差限制在弹弓的球状碰撞器半径范围内
         float maxMagnitude = this.GetComponent<SphereCollider>().radius;
         if (mouseDelta.magnitude > maxMagnitude)
@@ -75,6 +75,10 @@ public class SlingShot : MonoBehaviour
         {
             // 如果已经松开鼠标
             aimingMode = false;
+            projectile.GetComponent<Rigidbody>().isKinematic = false;
+            projectile.GetComponent<Rigidbody>().velocity = -mouseDelta * velocityMult;
+            FollowCam.S.poi = projectile;
+            projectile = null;
         }
     }
 }
