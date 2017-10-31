@@ -79,6 +79,7 @@ public class SlingShot : MonoBehaviour
             projectile.GetComponent<Rigidbody>().velocity = -mouseDelta * velocityMult;
             FollowCam.S.poi = projectile;
             projectile = null;
+            // projectile引用了GameObject，将它置null后，不影响poi通过projectile对GameObject的引用，所以poi并不为null
         }
     }
 }
