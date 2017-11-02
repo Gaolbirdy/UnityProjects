@@ -26,11 +26,30 @@ public class FollowCam : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Vector3 destination;
+        // 如果兴趣点不存在，返回到P:[0,0,0]
         if (poi == null)
-            return; // 如果兴趣点不存在，则返回
-
-        // 获取兴趣点的位置
-        Vector3 destination = poi.transform.position;
+        {
+            destination = Vector3.zero;
+            //return;
+        }
+        else
+        {
+            // 获取兴趣点的位置
+            destination = poi.transform.position;
+            // 如果兴趣点是一个Projectile实例，检查它是否已经静止
+            if (poi.tag == "Projectile")
+            {
+                // 如果它处于sleeping状态（即未移动）
+                if (poi.GetComponent<Rigidbody>().IsSleeping())
+                {
+                    // 返回到默认视图
+                    poi = null;
+                    // 在下一次更新时
+                    return;
+                }
+            }
+        }
         // 限定x和y的最小值
         destination.x = Mathf.Max(minXY.x, destination.x);
         destination.y = Mathf.Max(minXY.y, destination.y);

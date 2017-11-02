@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class SlingShot : MonoBehaviour
  {
+    static public SlingShot S;
+    
     // 在Unity检视面板中设置的字段
     public GameObject prefabProjectile;
     public float velocityMult = 4f;
     public bool ________________________;
 
     // 动态设置的字段
-    private GameObject launchPoint;
+    public GameObject launchPoint;
     public Vector3 launchPos;
     public GameObject projectile;
     public bool aimingMode;
 
     private void Awake()
     {
+        // 设置SlingShot的单例对象S
+        S = this;
+
         Transform launchPointTrans = transform.Find("LaunchPoint");
         launchPoint = launchPointTrans.gameObject;
         launchPoint.SetActive(false);
