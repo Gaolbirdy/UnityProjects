@@ -9,13 +9,13 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // 当其他物理撞到触发器时
+        // 当其他物体撞到触发器时
         // 检查是否是弹丸
         if (other.gameObject.tag == "Projectile")
         {
             // 如果是弹丸，设置goalMet为true
             Goal.goalMet = true;
-            // 同时将颜色的不同透明度设置得更高
+            // 同时将颜色的不透明度设置得更高
             Color c = GetComponent<Renderer>().material.color;
             c.a = 1;
             GetComponent<Renderer>().material.color = c;
