@@ -24,7 +24,8 @@ public class Test1 : MonoBehaviour
         //lineRenderer = GetComponent<LineRenderer>();
         if(Input.GetMouseButton(0))
         {
-            position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z + 1));
+            position = Camera.main.ScreenToWorldPoint(new Vector3
+                (Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z + 1f));
             LengthOfLineRenderer++;
             lineRenderer.positionCount = LengthOfLineRenderer;
         }
