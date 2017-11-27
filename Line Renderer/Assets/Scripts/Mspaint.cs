@@ -16,7 +16,7 @@ public class Mspaint : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject go = new GameObject();   // 空
+            GameObject go = new GameObject();
             go.transform.SetParent(this.transform);
             currentLine = go.AddComponent<LineRenderer>();
             currentLine.material = lineMaterial;
@@ -45,11 +45,12 @@ public class Mspaint : MonoBehaviour
 
     private void AddPosition()
     {
+        // 得到鼠标点击位置的坐标，尝试用两种方式
         Vector3 position = GetMousePoint();
         //position.z -= 0.01f;
         positions.Add(position);
         currentLine.positionCount = positions.Count;
-        //print(position);
+        print(position);
         currentLine.SetPositions(positions.ToArray());
     }
 
