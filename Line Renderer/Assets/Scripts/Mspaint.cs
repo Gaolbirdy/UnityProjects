@@ -45,7 +45,7 @@ public class Mspaint : MonoBehaviour
 
     private void AddPosition()
     {
-        // 得到鼠标点击位置的坐标，尝试用两种方式
+        // 得到鼠标点击位置的坐标，尝试用两种方法，GetMousePoint()和MousePoint()
         Vector3 position = GetMousePoint();
         //position.z -= 0.01f;
         positions.Add(position);
@@ -65,6 +65,14 @@ public class Mspaint : MonoBehaviour
         }
         return Vector3.zero;
     }
+
+    //private Vector3 MousePoint()
+    //{
+    //    Vector3 mousePos2D = Input.mousePosition;
+    //    mousePos2D.z = -Camera.main.transform.position.z;
+    //    Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+    //    return mousePos3D;
+    //}
 
     #region OnValueChanged Method
     public void OnRedColorChanged(bool isOn)
