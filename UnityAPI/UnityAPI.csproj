@@ -81,6 +81,10 @@
     <Compile Include="Assets\Scripts\API01EventFunction.cs" />
     <Compile Include="Assets\Scripts\API02Time.cs" />
     <Compile Include="Assets\Scripts\API03GameObject.cs" />
+    <Compile Include="Assets\Scripts\API04Message.cs" />
+    <Compile Include="Assets\Scripts\API05GetComponent.cs" />
+    <Compile Include="Assets\Scripts\API06MonoBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Cube.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
