@@ -84,6 +84,8 @@
     <Compile Include="Assets\Scripts\API04Message.cs" />
     <Compile Include="Assets\Scripts\API05GetComponent.cs" />
     <Compile Include="Assets\Scripts\API06MonoBehaviour.cs" />
+    <Compile Include="Assets\Scripts\API07Invoke.cs" />
+    <Compile Include="Assets\Scripts\API08Coroutine.cs" />
     <Compile Include="Assets\Scripts\Cube.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
