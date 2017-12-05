@@ -6,6 +6,9 @@ public class API08Coroutine : MonoBehaviour
 {
     public GameObject cube;
 
+    //private IEnumerator ie;
+    private Coroutine ct;
+
     private void Start()
     {
         //print("haha");
@@ -19,7 +22,15 @@ public class API08Coroutine : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(Fade());
+            //ie = Fade();
+            //StartCoroutine(ie);
+            //ct = StartCoroutine(Fade());
+            StartCoroutine("Fade");
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            //StopCoroutine(ct);
+            StopCoroutine("Fade");
         }
     }
 
@@ -30,7 +41,6 @@ public class API08Coroutine : MonoBehaviour
             //cube.GetComponent<MeshRenderer>().material.color = new Color(i, i, i, i);
             Color color = cube.GetComponent<MeshRenderer>().material.color;
             Color newColor = Color.Lerp(color, Color.red, 0.02f);
-            //newColor = color;??
             cube.GetComponent<MeshRenderer>().material.color = newColor;
             yield return new WaitForSeconds(0.02f);
             if (Mathf.Abs(Color.red.g - newColor.g) <= 0.01f)
