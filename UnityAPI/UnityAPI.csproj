@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\API08Coroutine.cs" />
     <Compile Include="Assets\Scripts\API09OnMouseEventFunction.cs" />
     <Compile Include="Assets\Scripts\API10Mathf.cs" />
+    <Compile Include="Assets\Scripts\API11Input.cs" />
     <Compile Include="Assets\Scripts\Cube.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
