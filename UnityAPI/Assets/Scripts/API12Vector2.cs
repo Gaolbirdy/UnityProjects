@@ -33,9 +33,9 @@ public class API12Vector2 : MonoBehaviour
         //pos.x = 10;
         //transform.position = pos;
 
-        //Vector2 a = new Vector2(2, 2);
-        //Vector2 b = new Vector2(3, 4);
-        //Vector2 c = new Vector2(3, 0);
+        Vector2 a = new Vector2(2, 2);
+        Vector2 b = new Vector2(3, 4);
+        Vector2 c = new Vector2(3, 0);
 
         //print(Vector2.Angle(a, b));
         //print(Vector2.Angle(b, c));
@@ -50,6 +50,13 @@ public class API12Vector2 : MonoBehaviour
 
         //print(Vector2.Max(a, b));
         //print(Vector2.Min(a, b));
+
+        Vector3 res = b - a;
+        print(res);
+        print(res * 10);
+        print(res / 5);
+        print(a + b);
+        print(a == b);
     }
 
     public Vector2 a = new Vector2(2, 2);

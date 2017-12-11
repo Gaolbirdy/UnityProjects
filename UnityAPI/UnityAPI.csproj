@@ -76,15 +76,6 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\API01EventFunction.cs" />
@@ -99,6 +90,8 @@
     <Compile Include="Assets\Scripts\API10Mathf.cs" />
     <Compile Include="Assets\Scripts\API11Input.cs" />
     <Compile Include="Assets\Scripts\API12Vector2.cs" />
+    <Compile Include="Assets\Scripts\API13Random.cs" />
+    <Compile Include="Assets\Scripts\API14Quaternion.cs" />
     <Compile Include="Assets\Scripts\Cube.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
