@@ -17,7 +17,7 @@ public class API14Quaternion : MonoBehaviour
         //print(cube.localRotation);
 
         //cube.eulerAngles = new Vector3(45, 45, 45);
-        //cube.rotation = Quaternion.Euler(new Vector3(45, 45, 45));
+        cube.rotation = Quaternion.Euler(new Vector3(45, 45, 45));
         //print(cube.rotation.eulerAngles);
         
     }
@@ -31,7 +31,7 @@ public class API14Quaternion : MonoBehaviour
             dir.y = 0;
             //print(dir);
             Quaternion target = Quaternion.LookRotation(dir);
-            player.rotation = Quaternion.Lerp(player.rotation, target, Time.deltaTime); // 中间变量lerp
+            player.rotation = Quaternion.Lerp(player.rotation, target, Time.deltaTime); // 中间变量lerp？
             //player.rotation = Quaternion.Slerp(player.rotation, target, Time.deltaTime);
         }
     }

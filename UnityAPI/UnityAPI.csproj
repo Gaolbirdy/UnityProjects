@@ -92,6 +92,8 @@
     <Compile Include="Assets\Scripts\API12Vector2.cs" />
     <Compile Include="Assets\Scripts\API13Random.cs" />
     <Compile Include="Assets\Scripts\API14Quaternion.cs" />
+    <Compile Include="Assets\Scripts\API15RigidbodyPosition.cs" />
+    <Compile Include="Assets\Scripts\API16Camera.cs" />
     <Compile Include="Assets\Scripts\Cube.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
