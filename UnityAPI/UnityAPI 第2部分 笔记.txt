@@ -1,0 +1,31 @@
+射线检测
+UGUI 事件监听
+	1，拖拽
+	2，代码添加
+	3，通过实现接口
+WWW
+触摸事件  Easytouch
+Camera
+CharacterController
+Mesh
+Material
+Animator
+
+unity 4.x 5.x 2017
+
+GetComponent<Rigidbody2D>() 代替 rigidbody2D
+GetComponent<Rigidbody>() 代替 rigidbody
+GetComponent<AudioSource>() 代替 audio
+
+Unity 5.3:
+ParticleSystem main = smokePuff.GetComponent<ParticleSystem>();
+main.startColor
+Unity 5.5+:
+ParticleSystem.MainModule main = smokePuff.GetComponent<ParticleSystem>().main;
+main.startColor
+
+SceneManagement 代替 Application
+
+OnLevelWasLoaded() 在 Unity 5中被弃用了。
+
+2D/3D sound 如何设置2D/3D声音
