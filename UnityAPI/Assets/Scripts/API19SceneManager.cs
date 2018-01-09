@@ -14,7 +14,7 @@ public class API19SceneManager : MonoBehaviour
         print(SceneManager.GetSceneAt(0).name);
 
         SceneManager.activeSceneChanged += OnActiveSceneChanged;
-        SceneManager.sceneLoaded += OnSceneLoaded;z
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnActiveSceneChanged(Scene a, Scene b)

@@ -76,17 +76,10 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scenes\01 - Physics Raycast\Player.cs" />
+    <Compile Include="Assets\Scenes\02 - UGUI Events\UIEventManager.cs" />
     <Compile Include="Assets\Scripts\API01EventFunction.cs" />
     <Compile Include="Assets\Scripts\API02Time.cs" />
     <Compile Include="Assets\Scripts\API03GameObject.cs" />
