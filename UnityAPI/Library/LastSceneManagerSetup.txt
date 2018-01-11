@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/06- Character Controller/06- Character Controller.unity
+- path: Assets/Scenes/07 - Mesh And Mat/07 - Mesh And Mat.unity
   isLoaded: 1
   isActive: 1

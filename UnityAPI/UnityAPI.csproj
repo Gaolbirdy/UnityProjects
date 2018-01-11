@@ -84,7 +84,8 @@
     <Compile Include="Assets\Scenes\03 - WWW\WWWTest.cs" />
     <Compile Include="Assets\Scenes\04 - Touches\TouchTest.cs" />
     <Compile Include="Assets\Scenes\05 - Camera\CameraTest.cs" />
-    <Compile Include="Assets\Scenes\06- Character Controller\PlayerCC.cs" />
+    <Compile Include="Assets\Scenes\06 - Character Controller\PlayerCC.cs" />
+    <Compile Include="Assets\Scenes\07 - Mesh And Mat\MeshAndMat.cs" />
     <Compile Include="Assets\Scripts\API01EventFunction.cs" />
     <Compile Include="Assets\Scripts\API02Time.cs" />
     <Compile Include="Assets\Scripts\API03GameObject.cs" />

@@ -20,6 +20,7 @@ public class PlayerCC : MonoBehaviour
         //print(cc.isGrounded);
         //cc.Move(new Vector3(h, 0, v) * speed * Time.deltaTime);
     }
+    
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         print(hit.collider);
