@@ -19,6 +19,7 @@ public class Mspaint : MonoBehaviour
             GameObject go = new GameObject();
             go.transform.SetParent(this.transform);
             currentLine = go.AddComponent<LineRenderer>();
+
             currentLine.material = lineMaterial;
             currentLine.startWidth = paintSize;
             currentLine.endWidth = paintSize;
@@ -26,6 +27,7 @@ public class Mspaint : MonoBehaviour
             currentLine.endColor = paintColor;
             currentLine.numCornerVertices = 5;
             currentLine.numCapVertices = 5;
+
             AddPosition();
             isMouseDown = true;
         }
