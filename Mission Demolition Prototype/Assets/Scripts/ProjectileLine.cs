@@ -71,7 +71,8 @@ public class ProjectileLine : MonoBehaviour
             // ……则增加一根线条，帮助之后瞄准
             points.Add(pt + launchPosDiff);
             points.Add(pt);
-            line.SetVertexCount(2);
+            //line.SetVertexCount(2);
+            line.positionCount = 2;
             //line.positionCount = 2;
             // 设置前两个点
             line.SetPosition(0, points[0]);
