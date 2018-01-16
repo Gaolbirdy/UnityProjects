@@ -11,7 +11,7 @@ public class ProjectileLine : MonoBehaviour
 
     // 在代码中动态设置的字段
     public LineRenderer line;
-    public List<Vector3> points;// = new List<Vector3>();
+    public List<Vector3> points;    // = new List<Vector3>();
 
     private GameObject _poi;
 
@@ -22,7 +22,7 @@ public class ProjectileLine : MonoBehaviour
         line = GetComponent<LineRenderer>();
         // 在需要使用LineRenderer之前，将其禁用
         line.enabled = false;
-        // 初始化三维向量点的List。 在声明处初始化？
+        // 初始化三维向量点的List
         points = new List<Vector3>();
     }
 
@@ -41,7 +41,7 @@ public class ProjectileLine : MonoBehaviour
                 // 当把_poi设置为新对象时，将复位其所有内容
                 line.enabled = false;
                 points = new List<Vector3>();
-                AddPoint();
+                AddPoint(); // 没必要？
             }
         }
     }
@@ -57,7 +57,8 @@ public class ProjectileLine : MonoBehaviour
     public void AddPoint()
     {
         // 用于在线条上添加一个点
-        Vector3 pt = _poi.transform.position;
+        Vector3 pt = _poi.transform.position;   // 兴趣点当前的位置
+
         if (points.Count > 0 && (pt - lastPoint).magnitude < minDist)
         {
             // 如果该点与上一个点的位置不够远，则返回
@@ -80,6 +81,14 @@ public class ProjectileLine : MonoBehaviour
             // 启用线渲染器
             line.enabled = true;
         }
+        else
+        {
+            // 正常加点的操作
+            points.Add(pt);
+            line.positionCount = points.Count;
+            line.SetPosition(points.Count - 1, lastPoint);
+            line.enabled = true;
+        }
     }
 
     public Vector3 lastPoint
@@ -97,7 +106,7 @@ public class ProjectileLine : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(poi == null)
+        if (poi == null)
         {
             // 如果兴趣点不存在，则找出一个
             if (FollowCam.S.poi != null)
