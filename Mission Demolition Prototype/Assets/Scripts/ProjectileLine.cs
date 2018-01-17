@@ -67,14 +67,14 @@ public class ProjectileLine : MonoBehaviour
         if (points.Count == 0)
         {
             // 如果当前是发射点
-            Vector3 launchPos = SlingShot.S.launchPoint.transform.position;
-            Vector3 launchPosDiff = pt - launchPos;
+            Vector3 launchPos = SlingShot.S.launchPoint.transform.position; // 发射点位置
+            Vector3 launchPosDiff = pt - launchPos; // 发射点离兴趣点的距离(可以视为pt相对于launchPos的位置坐标)
+            //Debug.DrawLine(pt, launchPos);
+            //Debug.Break();
             // ……则增加一根线条，帮助之后瞄准
-            points.Add(pt + launchPosDiff);
-            points.Add(pt);
-            //line.SetVertexCount(2);
+            points.Add(pt + launchPosDiff); // 第0个点 在pt拉弓方向的后侧
+            points.Add(pt); // 第1个点
             line.positionCount = 2;
-            //line.positionCount = 2;
             // 设置前两个点
             line.SetPosition(0, points[0]);
             line.SetPosition(1, points[1]);
