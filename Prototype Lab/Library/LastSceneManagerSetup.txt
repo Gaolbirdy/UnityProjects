@@ -1,0 +1,4 @@
+sceneSetups:
+- path: D:/Git/UnityProjects/BallGame/Assets/_Scenes.unity
+  isLoaded: 1
+  isActive: 1
