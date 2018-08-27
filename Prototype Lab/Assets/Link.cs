@@ -15,6 +15,7 @@ public class Link : MonoBehaviour
     public Text textYellow;
     public int scoreRed  = 0;
     public int scoreYellow = 0;
+    public bool rotateMode = true;
 
     public GameObject yellowGoal;
     public GameObject redGoal;
@@ -57,17 +58,26 @@ public class Link : MonoBehaviour
             isRedRotate = isRedRotate ? false : true;
         }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            rotateMode = rotateMode ? false : true;
+        }
+
         if (isRedRotate)
         {
             //linkRot.z += 0.01f;
             //transform.rotation = linkRot;
-            transform.RotateAround(red.position, Vector3.forward, 1.5f);
+            transform.RotateAround(red.position, Vector3.forward, 2.5f);
         }
         else
         {
             //linkRot.z -= 0.01f;
             //transform.rotation = linkRot;
-            transform.RotateAround(yellow.position, Vector3.back, 1.5f);
+            if(rotateMode)
+                transform.RotateAround(yellow.position, Vector3.back, 2.5f);
+            else
+                transform.RotateAround(yellow.position, Vector3.forward, 2.5f);
+
         }
 
         textRed.text = "红球得分:" + scoreRed;
